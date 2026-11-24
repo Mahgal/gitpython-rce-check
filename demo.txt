@@ -1,0 +1,19 @@
+gitpython-rce-check --demo
+
+[1/2] fixtures/vuln-repo  (GitPython 3.1.30)
+--------------------------------------------
+Version : GitPython 3.1.30  -> VULNERABLE (< 3.2.0)
+File                               Call           Argument         Status
+-------------------------------------------------------------------------
+fixtures/vuln-repo/deploy.py:42    Remote.pull    user_input       DANGEROUS
+fixtures/vuln-repo/deploy.py:57    Head.checkout  branch_name      DANGEROUS
+fixtures/vuln-repo/deploy.py:70    Remote.pull    refspec          DANGEROUS
+Result  : FAIL - GitPython 3.1.30 is before the fixed release 3.2.0
+Fix     : pip install -U 'GitPython>=3.2.0' and re-run this check
+          then remove/validate the DANGEROUS call(s) above
+
+[2/2] fixtures/safe-repo  (GitPython 3.2.0)
+-------------------------------------------
+Version : GitPython 3.2.0  -> OK (>= 3.2.0)
+(no pull/checkout calls with untrusted input found)
+Result  : PASS - version fixed, 0 dangerous call(s)

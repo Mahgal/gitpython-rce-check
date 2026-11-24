@@ -1,0 +1,1 @@
+gitpython, security, cve-2026-110858, cve-2026-110859, vulnerability-scanner, rce, static-analysis, devops, cli, python
